@@ -1,8 +1,48 @@
 ﻿@{
     ViewData["Title"] = "";
 }
-
+@if (User.Identity.IsAuthenticated)// check whether the user is authenticated or not
+{
+    
 <div class="text-center">
     <h1 class="display-4">Ctrl_Gallery</h1>
-    <p></p>
+    <p><div class="col-sm-6">
+      <h2>Upload content</h2>
+    </div>
+    <form method="post" action="/Home/ShowFields" enctype="multipart/form-data">
+        <input type="file" name="image" /><br>
+        <div class="input-box">
+            <span class="details">File name</span>
+            <input type="text" placeholder="Enter your file name" id="fileName" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Captured by</span>
+            <input type="text" placeholder="who captured the image" id="capturedBy" required>
+        </div>
+        <div class="input-box">
+            <span class="details">tag</span>
+            <input type="text" placeholder="Enter a name or phrase to indicate who is in the picture" id="tag" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Geolocation</span>
+            <input type="text" placeholder="Location where picture was taken" id="location" required>
+        </div>
+        <div class="input-box">
+            <span class="details">Date</span>
+            <input type="" placeholder="Enter the date taken" id="date" required>
+        </div>
+        <input type="submit" value="upload" />
+
+    </form>
+    </p>
+    <p><div class="col-sm-6">
+        <h3>View Photo's/Albums</h3>
+        <form>
+            <input type="submit" value="Click here" />
+        </form>
+    </p>
+     
 </div>
+
+
+}
